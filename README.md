@@ -28,7 +28,7 @@
 - [crossroads](https://github.com/millermedeiros/crossroads.js)
 - [history.js](https://github.com/browserstate/history.js)
 
-** Miscellaneous**
+**Miscellaneous**
 - [q](https://github.com/kriskowal/q)
 - [signal-js](https://github.com/millermedeiros/js-signals)
 - [momentjs](https://github.com/moment/moment/)
