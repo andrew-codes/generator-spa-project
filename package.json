@@ -1,0 +1,36 @@
+{
+  "name": "generator-spa-stack",
+  "version": "0.0.0",
+  "description": "Yeoman generator for creating a single-page application UI utilizing best practices when using react without a full MVV* framework such as angular or durandal.",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "andrew-codes/generator-spa-stack",
+  "author": {
+    "name": "Andrew Smith",
+    "email": "andrew@WeAreSoftwareCraftsmen.com",
+    "url": "http://andrew.codes"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "~0.16.0",
+    "chalk": "~0.4.0",
+    "yosay": "^0.1.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  }
+}
