@@ -37,6 +37,65 @@
 - [signal-js](https://github.com/millermedeiros/js-signals)
 - [momentjs](https://github.com/moment/moment/)
 
+
+# Generated Project
+
+## Project Structure
+
+```
+.
+|-- src
+|    |-- app
+|        |-- actions
+|        |-- components
+|        |-- dispatcher
+|        |-- lib
+|        |-- stores
+|    |-- images
+|    |-- styles
+|        |-- partials
+|        +-- app.styl
+|    +-- index.html
+|-- test
+|   |-- unit
+|        |-- lib
+|            +-- {{unit being tested}}-Spec.js
+|   |-- e2e
++-- .bowerrc
++-- .jshintrc
++-- bower.json
++-- gulpfile.js
++-- package.json
++-- webpack.config.js
+```
+
+### Built Development Structure
+
+```
+.
+|-- public
+|    |-- images
+|    |-- js
+|        +-- index.js
+|    |-- styles
+|        +-- index.css
+|    +-- index.html
+```
+
+### Built Production Structure
+
+```
+|-- public
+|    +-- index.html
+```
+
+#### Notes on Production Deployments
+The following are the differences between building the site for a development build and for a production build:
+
+- **third-party dependencies** use their respective CDN as specified by the build's configuration file
+- **application specific assets (*css, javascript, images*)** utilize a CDN as specified by the build's configuration file
+- **application specific assets** will be combined/minified (css, javascript) and optimized (images)
+
 ## Usage
 
 **Note for Developers**: when developing, all of the bower dependencies load locally; as opposed to loading from their respective CDN.
@@ -76,10 +135,3 @@ To create a production build, use the following command
 ```bash
 gulp build-production
 ```
-
-### Notes on Production Deployments
-The following are the differences between building the site for a development build and for a production build:
-
-- **third-party dependencies** use their respective CDN as specified by the build's configuration file
-- **application specific assets (*css, javascript, images*)** utilize a CDN as specified by the build's configuration file
-- **application specific assets** will be combined/minified (css, javascript) and optimized (images)
