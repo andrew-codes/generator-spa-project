@@ -69,7 +69,7 @@
 +-- webpack.config.js
 ```
 
-### Built Development Structure
+### Build Output Structure
 
 ```
 .
@@ -77,28 +77,14 @@
 |    |-- images
 |    |-- js
 |        +-- index.js
+|        +-- {{third party scripts}}
 |    |-- styles
 |        +-- index.css
+|        +-- {{third party stylesheets}}
 |    +-- index.html
 ```
 
-### Built Production Structure
-
-```
-|-- public
-|    +-- index.html
-```
-
-#### Notes on Production Deployments
-The following are the differences between building the site for a development build and for a production build:
-
-- **third-party dependencies** use their respective CDN as specified by the build's configuration file
-- **application specific assets (*css, javascript, images*)** utilize a CDN as specified by the build's configuration file
-- **application specific assets** will be combined/minified (css, javascript) and optimized (images)
-
-## Usage
-
-**Note for Developers**: when developing, all of the bower dependencies load locally; as opposed to loading from their respective CDN.
+## Usage: gulp Tasks
 
 To run the site, use the following command
 
@@ -127,11 +113,14 @@ gulp tests-e2e
 To create a development build, use the following command
 
 ```bash
-gulp build-dev
+gulp build build.config.js
 ```
 
-To create a production build, use the following command
+This will use the `build.config.js` to configure the build process. By default, it will use bower to find third-party scripts and styles.
 
-```bash
-gulp build-production
-```
+## Production Builds
+
+For production builds, the build.config.js can be updated to appropriate values to utilize CDNs over local resources.
+
+- **third-party dependencies** use their respective CDN as specified by the build's configuration file
+- **application specific assets (*css, javascript, images*)** utilize a CDN as specified by the build's configuration file
