@@ -24,13 +24,13 @@ describe('spa-project generator', function () {
             var destinationDirectory = path.join(__dirname, '../temp');
             generatorRun = helpers.run(path.join(__dirname, '../app'))
                 .inDir(destinationDirectory)
-                .withPrompt({ appName: 'my-app' })
+                .withPrompt({ appName: 'my-app', authorName: 'first last' })
                 .on('ready', function (generator) {
                     generator.destinationRoot(destinationDirectory);
                     done();
                 });
         });
-        it('create the package and bower JSON files with the application\'s name', function (done) {
+        it('creates the appropriate files', function (done) {
             var expected = [
                 'package.json',
                 'bower.json',
@@ -44,6 +44,13 @@ describe('spa-project generator', function () {
             ];
             generatorRun.on('end', function () {
                 assert.file(expected);
+                done();
+            });
+        });
+        it('populates the package.json with prompted data', function (done) {
+            generatorRun.on('end', function () {
+                assert.fileContent('package.json', /"name":\s*"my-app"/);
+                assert.fileContent('package.json', /"author":\s*"first last"/);
                 done();
             });
         });

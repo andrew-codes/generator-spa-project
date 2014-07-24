@@ -31,10 +31,15 @@ var SpaProjectGenerator = yeoman.generators.Base.extend({
                 name: 'appName',
                 message: 'What is the name of this app?',
                 default: defaultAppName
+            },
+            {
+                name: 'authorName',
+                message: 'What is your name?'
             }
         ];
         this.prompt(prompts, function (props) {
             this.appName = props.appName;
+            this.authorName = props.authorName;
             done();
         }.bind(this));
     },
