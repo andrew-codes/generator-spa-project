@@ -44,7 +44,8 @@ describe('spa-project generator', function () {
                 '.gitignore',
                 'gulpfile.js',
                 'webpack.config.js',
-                'src/index.html'
+                'src/index.html',
+                'src/styles/app.styl'
             ];
             generatorRun.on('end', function () {
                 assert.file(expected);
@@ -97,6 +98,13 @@ describe('spa-project generator', function () {
             generatorRun.on('end', function () {
                 assert.fileContent('bower.json', /"momentjs"/);
                 assert.fileContent('src/index.html', /src=".*\/moment[.]js"/);
+                done();
+            });
+        });
+        it('includes semantic grid', function (done) {
+            generatorRun.on('end', function () {
+                assert.fileContent('bower.json', /"semantic[-]grid"/);
+                assert.fileContent('src/styles/app.styl', /bower_components\/semantic-grid\/stylesheets\/styl\/grid/);
                 done();
             });
         });
