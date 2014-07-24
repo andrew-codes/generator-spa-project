@@ -1,6 +1,6 @@
 {
   "generator-assemble": {
-    "projectName": "SPA Stack generator",
+    "projectName": "SPA Project generator",
     "projectDesc": "generator for creating a single-page application UI utilizing best practices when using react without a full MVV* framework such as angular or durandal",
     "authorLogin": "andrew-codes",
     "installPlugin": true,

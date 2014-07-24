@@ -59,7 +59,7 @@
 |-- test
 |   |-- unit
 |        |-- lib
-|            +-- {{unit being tested}}-Spec.js
+|            +-- {{unit being tested}}-spec.js
 |   |-- e2e
 +-- .bowerrc
 +-- .jshintrc

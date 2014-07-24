@@ -4,51 +4,58 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 var chalk = require('chalk');
+var path = require('path');
+var handlebarsEngine = require('yeoman-handlebars-engine');
 
+var SpaProjectGenerator = yeoman.generators.Base.extend({
+    constructor: function (args, options, config) {
+        options.engine = handlebarsEngine;
+        yeoman.generators.Base.apply(this, arguments);
+    },
 
-var SpaStackGenerator = yeoman.generators.Base.extend({
-  init: function () {
-    this.pkg = require('../package.json');
+    init: function () {
+        this.log(yosay('Welcome to the Spa Project generator!'));
+        this.on('end', function () {
+            if (!this.options['skip-install']) {
+                this.pkg = this.dest.readJSON('package.json');
+                this.installDependencies();
+            }
+        });
+    },
 
-    this.on('end', function () {
-      if (!this.options['skip-install']) {
-        this.installDependencies();
-      }
-    });
-  },
+    askForAppName: function () {
+        var done = this.async();
+        var defaultAppName = getDefaultAppName();
+        var prompts = [
+            {
+                name: 'appName',
+                message: 'What is the name of this app?',
+                default: defaultAppName
+            }
+        ];
+        this.prompt(prompts, function (props) {
+            this.appName = props.appName;
+            done();
+        }.bind(this));
+    },
 
-  askFor: function () {
-    var done = this.async();
+    app: function () {
+        this.template('_bower.json', 'bower.json');
+        this.template('_package.json', 'package.json');
+    },
 
-    // Have Yeoman greet the user.
-    this.log(yosay('Welcome to the marvelous SpaStack generator!'));
-
-    var prompts = [{
-      type: 'confirm',
-      name: 'someOption',
-      message: 'Would you like to enable this option?',
-      default: true
-    }];
-
-    this.prompt(prompts, function (props) {
-      this.someOption = props.someOption;
-
-      done();
-    }.bind(this));
-  },
-
-  app: function () {
-    this.mkdir('app');
-    this.mkdir('app/templates');
-
-    this.copy('_package.json', 'package.json');
-    this.copy('_bower.json', 'bower.json');
-  },
-
-  projectfiles: function () {
-    this.copy('editorconfig', '.editorconfig');
-    this.copy('jshintrc', '.jshintrc');
-  }
+    projectFiles: function () {
+        this.copy('editorconfig', '.editorconfig');
+        this.copy('jshintrc', '.jshintrc');
+        this.copy('bowerrc', '.bowerrc');
+        this.copy('gitignore', '.gitignore');
+        this.copy('gulpfile.js', 'gulpfile.js');
+        this.copy('webpack.config.js', 'webpack.config.js');
+    }
 });
 
-module.exports = SpaStackGenerator;
+module.exports = SpaProjectGenerator;
+
+function getDefaultAppName() {
+    return __dirname.split('/').pop().replace(' ', '-');
+}
