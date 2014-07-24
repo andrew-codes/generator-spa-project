@@ -58,11 +58,16 @@ describe('spa-project generator', function () {
                 done();
             });
         });
-
         it('populates the bower.json with prompted data', function (done) {
             generatorRun.on('end', function () {
                 assert.fileContent('bower.json', /"name"\s*:\s*"my-app"/);
                 assert.fileContent('bower.json', /"authors"(\s|\n|\r|\t)*:(\s|\n|\r|\t)*\[(\s|\n|\r|\t)*"first last [<]email@email[.]com[>]"(\s|\n|\r|\t)*\]/);
+                done();
+            });
+        });
+        it('includes font-awesome in index.html file', function (done) {
+            generatorRun.on('end', function () {
+                assert.fileContent('src/index.html', /href=".*\/font[-]awesome[.]css"/);
                 done();
             });
         });

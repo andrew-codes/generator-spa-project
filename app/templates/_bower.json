@@ -11,9 +11,9 @@
         "q": "~2.0.0",
         "crossroads": "~0.12.0",
         "history": "~1.8.0",
-        "font-awesome-stylus": "*",
         "normalize-stylus": "*",
-        "semantic-grid": "*"
+        "semantic-grid": "*",
+        "font-awesome": "~4.1.0"
     },
     "devDependencies": {
         "chai": "~1.9.1",
