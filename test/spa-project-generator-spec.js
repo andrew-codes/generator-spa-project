@@ -79,5 +79,12 @@ describe('spa-project generator', function () {
                 done();
             });
         });
+        it('includes q', function (done) {
+            generatorRun.on('end', function () {
+                assert.fileContent('bower.json', /"q"/);
+                assert.fileContent('src/index.html', /src=".*\/q[.]js"/);
+                done();
+            });
+        });
     });
 });
