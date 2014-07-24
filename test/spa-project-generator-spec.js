@@ -39,7 +39,8 @@ describe('spa-project generator', function () {
                 '.bowerrc',
                 '.gitignore',
                 'gulpfile.js',
-                'webpack.config.js'
+                'webpack.config.js',
+                'src/index.html'
             ];
             generatorRun.on('end', function () {
                 assert.file(expected);

@@ -51,6 +51,7 @@ var SpaProjectGenerator = yeoman.generators.Base.extend({
         this.copy('gitignore', '.gitignore');
         this.copy('gulpfile.js', 'gulpfile.js');
         this.copy('webpack.config.js', 'webpack.config.js');
+        this.template('index.html', 'src/index.html');
     }
 });
 
