@@ -65,9 +65,17 @@ describe('spa-project generator', function () {
                 done();
             });
         });
-        it('includes font-awesome in index.html file', function (done) {
+        it('includes font-awesome', function (done) {
             generatorRun.on('end', function () {
+                assert.fileContent('bower.json', /"font[-]awesome"/);
                 assert.fileContent('src/index.html', /href=".*\/font[-]awesome[.]css"/);
+                done();
+            });
+        });
+        it('includes normalize', function (done) {
+            generatorRun.on('end', function () {
+                assert.fileContent('bower.json', /"normalize[-]css"/);
+                assert.fileContent('src/index.html', /href=".*\/normalize[.]css"/);
                 done();
             });
         });
