@@ -20,6 +20,14 @@
         "chai": "~1.9.1",
         "sinon": "~1.10.3",
         "sinon-chai": "~2.5.0"
+    },
+    "overrides": {
+        "q": {
+            "main": "q.js"
+        },
+        "signals": {
+            "main": "dist/signals.js"
+        }
     }
 }
 
