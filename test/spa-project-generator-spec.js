@@ -86,5 +86,12 @@ describe('spa-project generator', function () {
                 done();
             });
         });
+        it('includes signals-js', function (done) {
+            generatorRun.on('end', function () {
+                assert.fileContent('bower.json', /"signals"/);
+                assert.fileContent('src/index.html', /src=".*\/signals[.]js"/);
+                done();
+            });
+        });
     });
 });
