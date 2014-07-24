@@ -93,5 +93,12 @@ describe('spa-project generator', function () {
                 done();
             });
         });
+        it('includes momentjs', function (done) {
+            generatorRun.on('end', function () {
+                assert.fileContent('bower.json', /"momentjs"/);
+                assert.fileContent('src/index.html', /src=".*\/moment[.]js"/);
+                done();
+            });
+        });
     });
 });
