@@ -35,11 +35,16 @@ var SpaProjectGenerator = yeoman.generators.Base.extend({
             {
                 name: 'authorName',
                 message: 'What is your name?'
+            },
+            {
+                name: 'authorEmail',
+                message: 'What is your email address?'
             }
         ];
         this.prompt(prompts, function (props) {
             this.appName = props.appName;
             this.authorName = props.authorName;
+            this.authorEmail = props.authorEmail;
             done();
         }.bind(this));
     },

@@ -1,6 +1,24 @@
 {
-  "name": "{{appName}}",
-  "version": "0.0.0",
-  "dependencies": {}
+    "name": "{{appName}}",
+    "version": "0.0.0",
+    "authors": [
+        "{{authorName}} <{{authorEmail}}>"
+    ],
+    "dependencies": {
+        "react": "~0.11.0",
+        "momentjs": "~2.7.0",
+        "signals": "~1.0.0",
+        "q": "~2.0.0",
+        "crossroads": "~0.12.0",
+        "history": "~1.8.0",
+        "font-awesome-stylus": "*",
+        "normalize-stylus": "*",
+        "semantic-grid": "*"
+    },
+    "devDependencies": {
+        "chai": "~1.9.1",
+        "sinon": "~1.10.3",
+        "sinon-chai": "~2.5.0"
+    }
 }
 

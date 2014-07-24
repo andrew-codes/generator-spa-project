@@ -24,7 +24,11 @@ describe('spa-project generator', function () {
             var destinationDirectory = path.join(__dirname, '../temp');
             generatorRun = helpers.run(path.join(__dirname, '../app'))
                 .inDir(destinationDirectory)
-                .withPrompt({ appName: 'my-app', authorName: 'first last' })
+                .withPrompt({
+                    appName: 'my-app',
+                    authorName: 'first last',
+                    authorEmail: 'email@email.com'
+                })
                 .on('ready', function (generator) {
                     generator.destinationRoot(destinationDirectory);
                     done();
@@ -49,8 +53,16 @@ describe('spa-project generator', function () {
         });
         it('populates the package.json with prompted data', function (done) {
             generatorRun.on('end', function () {
-                assert.fileContent('package.json', /"name":\s*"my-app"/);
-                assert.fileContent('package.json', /"author":\s*"first last"/);
+                assert.fileContent('package.json', /"name"\s*:\s*"my-app"/);
+                assert.fileContent('package.json', /"author"\s*:\s*"first last"/);
+                done();
+            });
+        });
+
+        it('populates the bower.json with prompted data', function (done) {
+            generatorRun.on('end', function () {
+                assert.fileContent('bower.json', /"name"\s*:\s*"my-app"/);
+                assert.fileContent('bower.json', /"authors"(\s|\n|\r|\t)*:(\s|\n|\r|\t)*\[(\s|\n|\r|\t)*"first last [<]email@email[.]com[>]"(\s|\n|\r|\t)*\]/);
                 done();
             });
         });
