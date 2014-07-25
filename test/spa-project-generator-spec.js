@@ -43,9 +43,9 @@ describe('spa-project generator', function () {
                 '.bowerrc',
                 '.gitignore',
                 'gulpfile.js',
-                'webpack.config.js',
                 'src/index.html',
-                'src/styles/app.styl'
+                'src/styles/app.styl',
+                'test/karma.config.unit.js'
             ];
             generatorRun.on('end', function () {
                 assert.file(expected);

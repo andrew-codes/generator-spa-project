@@ -10,6 +10,9 @@ var prefix = require('gulp-autoprefixer');
 var bowerFiles = require('main-bower-files');
 var fs = require('fs');
 var rename = require('gulp-rename');
+var karma = require('karma').server;
+var browserify = require('gulp-browserify');
+var karmaParseConfig = require('karma/lib/config').parseConfig;
 
 var bowerConfig = JSON.parse(fs.readFileSync('./.bowerrc'));
 var buildConfig = {
@@ -23,6 +26,11 @@ var buildConfig = {
     src: {
         styles: './src/styles/app.styl',
         scripts: './src/app/main.js'
+    },
+    tests: {
+        unit: {
+            config: './test/karma.config.unit.js'
+        }
     }
 };
 
@@ -57,6 +65,11 @@ gulp.task('clean', [], function () {
         .pipe(clean());
 });
 
+gulp.task('tests-unit', [], function (done) {
+    var config = karmaParseConfig(path.resolve(buildConfig.tests.unit.config), {});
+    karma.start(config, done);
+});
+
 function assembleStyles() {
     return gulp.src(buildConfig.src.styles)
         .pipe(stylus())
@@ -64,5 +77,6 @@ function assembleStyles() {
 }
 
 function assembleScripts() {
-    return gulp.src(buildConfig.src.scripts);
+    return gulp.src(buildConfig.src.scripts)
+        .pipe(browserify());
 }
