@@ -16,9 +16,11 @@
 - [nightwatchjs](https://github.com/beatfactor/nightwatch)
 
 **Build Automation**
-- [webpack](https://github.com/webpack/webpack)
+- [browserify](https://github.com/substack/node-browserify)
 - [gulp](https://github.com/gulpjs/gulp)
 - [CSS auto-prefixer](https://github.com/ai/autoprefixer)
+- CSS, HTML, JavaScript, image minification
+- CDN support for third-party scripts
 
 **UI**
 - [flux](http://facebook.github.io/react/docs/flux-overview.html)
@@ -66,7 +68,6 @@
 +-- bower.json
 +-- gulpfile.js
 +-- package.json
-+-- webpack.config.js
 ```
 
 ### Build Output Structure
@@ -77,10 +78,11 @@
 |    |-- images
 |    |-- js
 |        +-- index.js
-|        +-- {{third party scripts}}
 |    |-- styles
 |        +-- index.css
-|        +-- {{third party stylesheets}}
+|    |-- vendor
+|        |-- {{bower third party dependency}}
+             +-- {{bower main files}}
 |    +-- index.html
 ```
 
