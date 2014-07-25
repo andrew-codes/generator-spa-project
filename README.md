@@ -14,7 +14,7 @@ utilizing best practices for react, flux, and other front-end frameworks.
 - [karma](https://github.com/karma-runner/karma)
 
 **End-to-End Testing**
-- [nightwatchjs](https://github.com/beatfactor/nightwatch)
+- [nightwatchjs](https://github.com/beatfactor/nightwatch) (*coming soon*)
 
 **Build Automation**
 - [browserify](https://github.com/substack/node-browserify)
@@ -32,8 +32,8 @@ utilizing best practices for react, flux, and other front-end frameworks.
 - [semantic grid system](https://github.com/twigkit/semantic.gs)
 
 **Routing**
-- [crossroads](https://github.com/millermedeiros/crossroads.js)
-- [history.js](https://github.com/browserstate/history.js)
+- [crossroads](https://github.com/millermedeiros/crossroads.js) (*coming soon*)
+- [history.js](https://github.com/browserstate/history.js) (*coming soon*)
 
 **Miscellaneous**
 - [q](https://github.com/kriskowal/q)
