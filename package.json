@@ -1,7 +1,7 @@
 {
   "name": "generator-spa-project",
   "version": "0.0.0",
-  "description": "Yeoman generator for creating a single-page application project utilizing best practices for integrating react, flux, and other front-end frameworks.",
+  "description": "Yeoman generator for creating a single-page application with unit and e2e testing integrated and utilizing best practices for react, flux, and other front-end frameworks.",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "andrew-codes/generator-spa-project",
