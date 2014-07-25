@@ -64,6 +64,10 @@ var SpaProjectGenerator = yeoman.generators.Base.extend({
         this.template('index.html', 'src/index.html');
         this.template('app.styl', 'src/styles/app.styl');
         this.copy('karma.config.unit.js', 'test/karma.config.unit.js');
+        this.copy('unit-spec.js', 'test/unit/sample-spec.js');
+        this.mkdir('test/e2e');
+        this.mkdir('src/images');
+        this.copy('build.config.js', 'example.env.build.config.js');
     }
 });
 

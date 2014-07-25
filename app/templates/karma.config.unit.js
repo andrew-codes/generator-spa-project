@@ -1,3 +1,5 @@
+'use strict';
+
 var bowerMainFiles = require('main-bower-files');
 var testFiles = ['./unit/**/*-spec.js'];
 var bowerFiles = getThirdPartyDependencies();
