@@ -115,10 +115,15 @@ gulp tests-e2e
 To create a development build, use the following command
 
 ```bash
-gulp build build.config.js
+gulp build
 ```
 
-This will use the `build.config.js` to configure the build process. By default, it will use bower to find third-party scripts and styles.
+### Build Customization
+Any of the above accepts an optional CLI parameter to configure to build. An example is generated and named `example.env.build.config.js` and is located in the root of the project. Passing the optional parameter would look like this:
+
+```bash
+gulp build --buildConfigFile './example.env.build.config.js'
+```
 
 ## Production Builds
 
