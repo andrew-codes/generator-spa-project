@@ -1,4 +1,4 @@
-# generator-spa-stack [![Build Status](https://secure.travis-ci.org/andrew-codes/generator-spa-stack.png?branch=master)](https://travis-ci.org/andrew-codes/generator-spa-stack)
+# generator-spa-stack [![Build Status](https://secure.travis-ci.org/andrew-codes/generator-spa-project.png?branch=master)](https://travis-ci.org/andrew-codes/generator-spa-project)
 
 > [Yeoman](http://yeoman.io) generator for creating a single-page application project utilizing best practices for integrating react, flux, and other front-end frameworks.
 
