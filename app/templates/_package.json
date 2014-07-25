@@ -32,9 +32,6 @@
         "karma-react-jsx-preprocessor": "~0.1.1",
         "karma-chrome-launcher": "~0.1.4"
     },
-    "browser": {
-        "moment.js": "global:moment"
-    },
     "browserify-shim": {
         "q": "global:q",
         "moment": "global:moment",
